@@ -5,15 +5,15 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-  <display-name>Task9 Web Application</display-name>
+  <display-name>Task11 Web Application</display-name>
 
   <servlet>
-    <servlet-name>task9</servlet-name>
-    <servlet-class>my.task9.servlet.CounterServlet</servlet-class>
+    <servlet-name>task11</servlet-name>
+    <servlet-class>my.task11.servlet.UserAgentServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>task9</servlet-name>
-    <url-pattern>/count</url-pattern>
+    <servlet-name>task11</servlet-name>
+    <url-pattern>/useragent</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,20 +1,24 @@
-package my.task9.servlet;
+package my.task12.servlet;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class CounterServlet extends HttpServlet {
+public class ImageCounterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private long counter = 0;
 
-    final String FILE_NAME = "counter.data";
+    final String FILE_NAME = "im_counter.data";
 
     @Override
     public void destroy() {
@@ -30,13 +34,18 @@ public class CounterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final PrintWriter out = resp.getWriter();
-
         counter++;
 
-        out.println("<html><head><title>Counter Servlet</title></head>");
-        out.println("<body><h1>Page visited " + counter + " times</h1>");
-        out.println("</body></html>");
+        resp.setContentType("image/jpeg");
+
+        BufferedImage image = new BufferedImage(800, 200, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = image.createGraphics();
+        graphics.setFont(new Font("Serif", Font.ITALIC, 48));
+        graphics.setColor(Color.green);
+        graphics.drawString("Page visited " + counter + " times", 100, 100);
+
+        ServletOutputStream out = resp.getOutputStream();
+        ImageIO.write(image, "jpeg", out);
     }
 
     @Override

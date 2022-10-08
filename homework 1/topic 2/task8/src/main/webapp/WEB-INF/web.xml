@@ -8,12 +8,12 @@
   <display-name>Task8 Web Application</display-name>
 
   <servlet>
-    <servlet-name>Task8</servlet-name>
+    <servlet-name>task8</servlet-name>
     <servlet-class>my.task8.servlet.FirstServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>Task8</servlet-name>
+    <servlet-name>task8</servlet-name>
     <url-pattern>/FirstServlet</url-pattern>
   </servlet-mapping>
 </web-app>
