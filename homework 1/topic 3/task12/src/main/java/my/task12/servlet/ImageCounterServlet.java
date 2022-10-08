@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -71,6 +70,7 @@ public class ImageCounterServlet extends HttpServlet {
         try {
             Files.writeString(Paths.get(path), String.valueOf(counter));
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
