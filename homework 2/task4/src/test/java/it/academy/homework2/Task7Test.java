@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class Task4Test
+public class Task7Test
 {
     /**
      * Rigorous Test :-)

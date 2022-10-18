@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Task4 {
+public class Task7 {
     public static void main(String[] args) {
         Expense expense = new Expense();
         Receiver receiver = new Receiver();
@@ -43,7 +43,7 @@ public class Task4 {
 
     static boolean parseArguments(String[] args, Expense expense, Receiver receivers) {
         if (args.length != 3) {
-            System.out.println("Usage: " + Task4.class.getSimpleName() + " <date> <receiver> <amount>");
+            System.out.println("Usage: " + Task7.class.getSimpleName() + " <date> <receiver> <amount>");
             return false;
         }
 
