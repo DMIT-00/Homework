@@ -68,16 +68,16 @@
                         </goals>
                         <phase>process-resources</phase>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>Clear test DB</id>-->
-<!--                        <configuration>-->
-<!--                            <propertyFile>src/test/resources/expenses-test.jdbc.properties</propertyFile>-->
-<!--                        </configuration>-->
-<!--                        <goals>-->
-<!--                            <goal>dropAll</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>post-integration-test</phase>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>Clear test DB</id>
+                        <configuration>
+                            <propertyFile>src/test/resources/expenses-test.jdbc.properties</propertyFile>
+                        </configuration>
+                        <goals>
+                            <goal>dropAll</goal>
+                        </goals>
+                        <phase>post-integration-test</phase>
+                    </execution>
                 </executions>
             </plugin>
 
