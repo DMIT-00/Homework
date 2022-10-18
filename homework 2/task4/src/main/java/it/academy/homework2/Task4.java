@@ -30,10 +30,11 @@ public class Task4 {
         Map<Integer, String> receivers = receiverDao.readAll().stream()
                 .collect(Collectors.toMap(Receiver::getId, Receiver::getName));
 
-
+        System.out.printf("%-4s %-12s %-40s %s\n", "id", "date", "receiver", "amount");
+        System.out.println("----------------------------------------------------------------------");
         for (Expense ex : expenses) {
-            System.out.println(ex.getId() + "   " + ex.getDate() + "   " +
-                    receivers.getOrDefault(ex.getReceiverId(), "[no data]") + "   " + ex.getAmount());
+            String receiverName = receivers.getOrDefault(ex.getReceiverId(), "[no data]");
+            System.out.printf("%-4d %-12s %-40s %.2f\n", ex.getId(), ex.getDate(), receiverName, ex.getAmount());
         }
     }
 
