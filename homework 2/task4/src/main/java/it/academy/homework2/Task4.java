@@ -2,6 +2,7 @@ package it.academy.homework2;
 
 import it.academy.homework2.dao.ExpenseDaoImpl;
 import it.academy.homework2.dao.ReceiverDaoImpl;
+import it.academy.homework2.datasource.MysqlJdbcDataSource;
 import it.academy.homework2.model.Expense;
 import it.academy.homework2.model.Receiver;
 
@@ -15,8 +16,9 @@ public class Task4 {
     public static void main(String[] args) {
         Expense expense = new Expense();
         Receiver receiver = new Receiver();
-        ExpenseDaoImpl expenseDao = new ExpenseDaoImpl();
-        ReceiverDaoImpl receiverDao = new ReceiverDaoImpl();
+        MysqlJdbcDataSource mysqlJdbcDataSource = new MysqlJdbcDataSource();
+        ExpenseDaoImpl expenseDao = new ExpenseDaoImpl(mysqlJdbcDataSource);
+        ReceiverDaoImpl receiverDao = new ReceiverDaoImpl(mysqlJdbcDataSource);
 
 
         if (parseArguments(args, expense, receiver)) {

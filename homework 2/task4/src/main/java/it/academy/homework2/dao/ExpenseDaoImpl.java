@@ -10,8 +10,8 @@ import java.util.List;
 public class ExpenseDaoImpl implements Dao<Expense> {
     MysqlJdbcDataSource mysqlJdbcDataSource;
 
-    public ExpenseDaoImpl() {
-        this.mysqlJdbcDataSource = new MysqlJdbcDataSource();
+    public ExpenseDaoImpl(MysqlJdbcDataSource mysqlJdbcDataSource) {
+        this.mysqlJdbcDataSource = mysqlJdbcDataSource;
     }
 
     @Override

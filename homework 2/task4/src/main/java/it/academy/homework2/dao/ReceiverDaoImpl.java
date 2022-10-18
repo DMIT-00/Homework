@@ -10,8 +10,8 @@ import java.util.List;
 public class ReceiverDaoImpl implements Dao<Receiver> {
     MysqlJdbcDataSource mysqlJdbcDataSource;
 
-    public ReceiverDaoImpl() {
-        this.mysqlJdbcDataSource = new MysqlJdbcDataSource();
+    public ReceiverDaoImpl(MysqlJdbcDataSource mysqlJdbcDataSource) {
+        this.mysqlJdbcDataSource = mysqlJdbcDataSource;
     }
 
     @Override
