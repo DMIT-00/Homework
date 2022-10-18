@@ -8,7 +8,7 @@
     <artifactId>task7</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>task4</name>
+    <name>task7</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
