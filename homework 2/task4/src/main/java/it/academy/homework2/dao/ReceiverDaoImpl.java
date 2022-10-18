@@ -16,7 +16,7 @@ public class ReceiverDaoImpl implements Dao<Receiver> {
 
     @Override
     public void create(Receiver receiver) {
-        Connection connection = null;
+        Connection connection;
         String statement = "INSERT IGNORE INTO Receivers (name) VALUES(?)";
 
         try {

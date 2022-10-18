@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class MysqlJdbcDataSource {
@@ -23,8 +24,7 @@ public class MysqlJdbcDataSource {
         Class.forName(properties.getProperty("driver"));
     }
 
-    @SneakyThrows
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
                 properties.getProperty("url"),
                 properties.getProperty("username"),

@@ -16,7 +16,7 @@ public class ExpenseDaoImpl implements Dao<Expense> {
 
     @Override
     public void create(Expense expense) {
-        Connection connection = null;
+        Connection connection;
         String statement = "INSERT INTO Expenses (date, receiverId, amount) VALUES(?, ?, ?)";
 
         try {
