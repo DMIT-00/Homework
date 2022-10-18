@@ -57,8 +57,10 @@ public class ExpenseDaoImplTest {
         rs.next();
         int actualSize = rs.getInt(1);
         assertEquals(1, actualSize);
-        connection.createStatement().executeUpdate("truncate table Expenses;");
-        connection.createStatement().executeUpdate("truncate table Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
+        connection.createStatement().executeUpdate("TRUNCATE TABLE Expenses;");
+        connection.createStatement().executeUpdate("TRUNCATE TABLE Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 1;");
         connection.close();
     }
 
@@ -96,8 +98,11 @@ public class ExpenseDaoImplTest {
         rs.next();
         int actualSize = rs.getInt(1);
         assertEquals(10, actualSize);
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
         connection.createStatement().executeUpdate("truncate table Expenses;");
         connection.createStatement().executeUpdate("truncate table Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 1;");
         connection.close();
     }
+
 }

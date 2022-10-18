@@ -46,8 +46,10 @@ public class ReceiverDaoImplTest {
         rs.next();
         int actualSize = rs.getInt(1);
         Assert.assertEquals(1, actualSize);
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
         connection.createStatement().executeUpdate("truncate table Expenses;");
         connection.createStatement().executeUpdate("truncate table Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 1;");
         connection.close();
     }
 
@@ -78,8 +80,10 @@ public class ReceiverDaoImplTest {
         rs.next();
         int actualSize = rs.getInt(1);
         assertEquals(10, actualSize);
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
         connection.createStatement().executeUpdate("truncate table Expenses;");
         connection.createStatement().executeUpdate("truncate table Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 1;");
         connection.close();
     }
 
@@ -98,8 +102,10 @@ public class ReceiverDaoImplTest {
         receiverDao.create(receiver);
         Assert.assertTrue(receiverDao.getId(receiver) != 0);
 
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
         connection.createStatement().executeUpdate("truncate table Expenses;");
         connection.createStatement().executeUpdate("truncate table Receivers;");
+        connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 1;");
         connection.close();
     }
 }
