@@ -52,7 +52,8 @@ public class Task7 {
         try {
             date = LocalDate.parse(args[0]);
         } catch (DateTimeException e) {
-            System.out.println("Can't parse argument 1 as date, please use a valid format! Valid format is (xxxx-xx-xx). Data won't be added to the database.");
+            System.out.println("Can't parse argument 1 as date, please use a valid format! " +
+                    "Valid format is (xxxx-xx-xx). Data won't be added to the database.");
             return false;
         }
 
@@ -63,7 +64,8 @@ public class Task7 {
         try {
             amount = Double.parseDouble(args[2]);
         } catch (NumberFormatException e) {
-            System.out.println("Can't parse argument 3 as double, please use a valid format! Data won't be added to the database.");
+            System.out.println("Can't parse argument 3 as double, please use a valid format! " +
+                    "Data won't be added to the database.");
             return false;
         }
 
