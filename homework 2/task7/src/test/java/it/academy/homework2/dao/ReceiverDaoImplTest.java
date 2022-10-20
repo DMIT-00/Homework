@@ -76,10 +76,7 @@ public class ReceiverDaoImplTest {
         }
 
         // Then
-        rs = connection.createStatement().executeQuery("select count(*) from Receivers;");
-        rs.next();
-        int actualSize = rs.getInt(1);
-        assertEquals(10, actualSize);
+        assertEquals(10, receiverDao.readAll().size());
         connection.createStatement().executeUpdate("SET FOREIGN_KEY_CHECKS = 0;");
         connection.createStatement().executeUpdate("truncate table Expenses;");
         connection.createStatement().executeUpdate("truncate table Receivers;");
