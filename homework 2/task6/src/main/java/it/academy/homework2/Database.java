@@ -2,8 +2,10 @@ package it.academy.homework2;
 
 import it.academy.homework2.datasource.MysqlJdbcDataSource;
 
-import java.sql.*;
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Database {
     MysqlJdbcDataSource mysqlJdbcDataSource;
@@ -29,15 +31,14 @@ public class Database {
     }
 
     public void printSumMaxDay() {
-        // TODO: Implement
-        String query = "SELECT receiver,amount FROM Expenses";
+        String query = "SELECT date,SUM(`amount`) FROM Expenses GROUP BY date order by MAX(`amount`) DESC LIMIT 1;";
 
         try {
             final Connection connection = mysqlJdbcDataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             final ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("receiver") + " " + resultSet.getDouble("amount"));
+                System.out.println(resultSet.getString(1) + " " + resultSet.getDouble(2));
             }
             connection.close();
         } catch (SQLException e) {
@@ -46,15 +47,14 @@ public class Database {
     }
 
     public void printMaxExpenseBiggestDay() {
-        // TODO: Implement
-        String query = "SELECT receiver,amount FROM Expenses";
+        String query = "SELECT date,MAX(`amount`) FROM Expenses GROUP BY date order by SUM(`amount`) DESC LIMIT 1;";
 
         try {
             final Connection connection = mysqlJdbcDataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             final ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("receiver") + " " + resultSet.getDouble("amount"));
+                System.out.println(resultSet.getString(1) + " " + resultSet.getDouble(2));
             }
             connection.close();
         } catch (SQLException e) {
