@@ -2,7 +2,7 @@ package it.academy.homework3;
 
 import it.academy.homework3.dao.CarDaoImpl;
 import it.academy.homework3.model.Car;
-import it.academy.homework3.triggers.LowercaseTrigger;
+import it.academy.homework3.triggers.UppercaseTrigger;
 import it.academy.homework3.utils.HibernateUtil;
 
 import java.sql.Date;
@@ -20,9 +20,9 @@ public class Task7 {
                 new Car(null, "Ferrari", Date.valueOf("2022-04-04"), 42.0)
         );
 
-        LowercaseTrigger.createManufacturerLowercaseTrigger(HibernateUtil.getSessionFactory());
+        UppercaseTrigger.createManufacturerUppercaseTrigger(HibernateUtil.getSessionFactory());
         cars.forEach(carDao::create);
-        LowercaseTrigger.dropManufacturerLowercaseTrigger(HibernateUtil.getSessionFactory());
+        UppercaseTrigger.dropManufacturerUppercaseTrigger(HibernateUtil.getSessionFactory());
 
         carDao.readAll().forEach(System.out::println);
     }
