@@ -1,9 +1,7 @@
 package it.academy.homework3.dao;
 
 import it.academy.homework3.model.Car;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 
 import java.util.List;
 
@@ -37,9 +35,14 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public Car loadById(Long id) {
+    public Car loadById(Long id) throws HibernateException {
         try (Session session = sessionFactory.openSession()) {
-            return session.load(Car.class, id);
+            Car car = session.load(Car.class, id);
+
+            // Initialize lazy object
+            Hibernate.initialize(car);
+
+            return car;
         }
     }
 
