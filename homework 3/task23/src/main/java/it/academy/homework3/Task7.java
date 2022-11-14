@@ -25,5 +25,14 @@ public class Task7 {
         UppercaseTrigger.dropManufacturerUppercaseTrigger(HibernateUtil.getSessionFactory());
 
         carDao.readAll().forEach(System.out::println);
+
+        // Example of using flush() method
+        Car car = new Car(null, "Mercedes", Date.valueOf("2020-02-08"), 10.0);
+        carDao.create(car);
+
+        // To create object again we need to delete it, then use flush() and create it again
+        carDao.deleteAndCreate(car);
+
+        System.out.println(car);
     }
 }

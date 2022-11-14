@@ -10,5 +10,6 @@ public interface CarDao {
     Car getById(Long id);
     void update(Car car);
     void delete(Car car);
+    void deleteAndCreate(Car car);
     List<Car> readAll();
 }

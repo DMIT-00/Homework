@@ -72,4 +72,22 @@ public class CarDaoImpl implements CarDao {
             throw e;
         }
     }
+
+    @Override
+    public void deleteAndCreate(Car car) {
+        Transaction tx = null;
+        try (Session session = sessionFactory.openSession()) {
+            tx = session.beginTransaction();
+
+            session.delete(car);
+            session.flush();
+            session.save(car);
+
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (tx != null) tx.rollback();
+            throw e;
+        }
+    }
 }

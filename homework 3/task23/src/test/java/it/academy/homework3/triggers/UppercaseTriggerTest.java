@@ -15,22 +15,13 @@ public class UppercaseTriggerTest {
     CarDaoImpl carDao;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         carDao = new CarDaoImpl(HibernateUtil.getSessionFactory("hibernate_test.cfg.xml"));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         carDao = null;
-    }
-
-    @Test
-    public void checkIfUppercaseTriggerCreated() {
-        // Given
-
-        // When
-
-        // Then
     }
 
     @Test
@@ -49,14 +40,5 @@ public class UppercaseTriggerTest {
 
         // Then
         assertEquals(manufacturer.toUpperCase(), car.getManufacturer());
-    }
-
-    @Test
-    public void checkIfUppercaseTriggerDropped() {
-        // Given
-
-        // When
-
-        // Then
     }
 }
