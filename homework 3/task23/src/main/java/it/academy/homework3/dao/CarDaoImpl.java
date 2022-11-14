@@ -21,6 +21,7 @@ public class CarDaoImpl implements CarDao {
             session.saveOrUpdate(car);
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             if (tx != null) tx.rollback();
             throw e;
         }
@@ -66,6 +67,7 @@ public class CarDaoImpl implements CarDao {
             session.delete(car);
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             if (tx != null) tx.rollback();
             throw e;
         }
