@@ -69,7 +69,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>it.academy.homework3.Task7</mainClass>
+                                    <mainClass>it.academy.homework3.Task23</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

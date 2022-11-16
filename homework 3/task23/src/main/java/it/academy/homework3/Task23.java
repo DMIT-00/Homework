@@ -8,7 +8,7 @@ import it.academy.homework3.utils.HibernateUtil;
 import java.sql.Date;
 import java.util.List;
 
-public class Task7 {
+public class Task23 {
     public static void main(String[] args) {
         CarDaoImpl carDao = new CarDaoImpl(HibernateUtil.getSessionFactory());
 
